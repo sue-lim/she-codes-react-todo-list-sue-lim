@@ -2,10 +2,9 @@ import React, { useState } from "react";
 
 // props is an object like a dictionary & is the standard 
 // the below if deconstructing and we are are only grabbing what we need 
-function ToDoForm(props){
+function TodoForm(props){
     // props 
     const {addTodo} = props;
-
     //state for the to do form 
     const [todo, setTodo] = useState("");
 
@@ -14,10 +13,11 @@ function ToDoForm(props){
         //don't refresh the page 
         event.preventDefault();
         // if to do then this is a thruthy value and needs to be a full string and pass it into the function 
-        if (todo) {
+        if (!value) {
+            return;}
             addTodo(todo)
             setTodo("");
-        }
+        
     };
 
     return(
@@ -33,4 +33,4 @@ function ToDoForm(props){
     );
 }
 
-export default ToDoForm;
+export default TodoForm;
